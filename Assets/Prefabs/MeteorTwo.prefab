@@ -102,10 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bfd20d2e6e4c9cbd27800239375c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 2
   rb: {fileID: 4646699982655538940}
-  minSpeed: 8
-  maxSpeed: 15
+  damage: 1
+  explosionPrefab: {fileID: 5716140590469779075, guid: c4c0c55ea1ee61243bc1e17e9255ed37, type: 3}
+  minSpeed: 7
+  maxSpeed: 12
+  rotateSpeed: 100
 --- !u!50 &4646699982655538940
 Rigidbody2D:
   serializedVersion: 5

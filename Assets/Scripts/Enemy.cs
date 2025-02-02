@@ -4,10 +4,12 @@ public class Enemy : MonoBehaviour
 {
        [SerializeField] protected float health;
        [SerializeField] protected Rigidbody2D rb;
+       [SerializeField] protected float damage;
+       [SerializeField] protected GameObject explosionPrefab;
 
-       public void TakeDamage(float damage)
+       public void TakeDamage(float dmg)
        {
-              health -= damage;
+              health -= dmg;
               HurtSequence();
 
               if (health <= 0)
