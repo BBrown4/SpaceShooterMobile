@@ -368,7 +368,9 @@ MonoBehaviour:
   health: 3
   rb: {fileID: 3494980321074123357}
   damage: 1
+  scoreValue: 15
   explosionPrefab: {fileID: 5716140590469779075, guid: c4c0c55ea1ee61243bc1e17e9255ed37, type: 3}
+  powerUpSpawner: {fileID: 11400000, guid: 7ccaed6c745fab045a956a2ad5d49911, type: 2}
   anim: {fileID: 7496358472434051844}
   speed: 5
   shootInterval: 1

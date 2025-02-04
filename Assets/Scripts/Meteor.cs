@@ -6,6 +6,7 @@ public class Meteor : Enemy
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float rotateSpeed;
+    
     private float _speed;
 
     private void Start()
@@ -25,6 +26,7 @@ public class Meteor : Enemy
 
     public override void DeathSequence()
     {
+        base.DeathSequence();
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
