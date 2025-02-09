@@ -1,21 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PowerUps
 {
-    public class ShieldPowerUp : MonoBehaviour
+    public class ShieldPowerUp : BasePowerup
     {
-        private void OnTriggerEnter2D(Collider2D other)
+        public override void ActivatePowerup(GameObject other)
         {
-            if (other.CompareTag("Player"))
-            {
-                other.GetComponent<PlayerShieldActivator>().ActivateShield();
-                Destroy(gameObject);
-            }
-        }
-
-        private void OnBecameInvisible()
-        {
+            base.ActivatePowerup(other);
+            other.GetComponent<PlayerShieldActivator>().ActivateShield();
             Destroy(gameObject);
         }
     }

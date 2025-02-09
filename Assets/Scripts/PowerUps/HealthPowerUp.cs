@@ -1,23 +1,15 @@
-using System;
 using UnityEngine;
 
 namespace PowerUps
 {
-    public class HealthPowerUp : MonoBehaviour
+    public class HealthPowerUp : BasePowerup
     {
         [SerializeField] private int healAmount;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public override void ActivatePowerup(GameObject other)
         {
-            if (other.CompareTag("Player"))
-            {
-                other.GetComponent<PlayerStats>().AddHealth(healAmount);
-                Destroy(gameObject);
-            }
-        }
-
-        private void OnBecameInvisible()
-        {
+            base.ActivatePowerup(other);
+            other.GetComponent<PlayerStats>().AddHealth(healAmount);
             Destroy(gameObject);
         }
     }

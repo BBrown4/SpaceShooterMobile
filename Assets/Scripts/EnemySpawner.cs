@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,12 +7,13 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
-    [SerializeField]
-    private GameObject[] enemies;
+    [SerializeField] private GameObject[] enemies;
     
     [Space(15)]
-    [SerializeField]
-    private float enemySpawnTime;
+    [SerializeField] private float enemySpawnTime;
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private WinCondition winCondition;
+    
     
     private Camera _mainCam;
     private float _maxLeft;
@@ -22,6 +24,16 @@ public class EnemySpawner : MonoBehaviour
     {
         _mainCam = Camera.main;
         StartCoroutine(SetBoundariesCoroutine());
+    }
+
+    private void OnDisable()
+    {
+        if (!winCondition.CanSpawnBoss) return;
+        if (bossPrefab != null)
+        {
+            var spawnPos = _mainCam.ViewportToWorldPoint(new Vector2(0.5f, 1.5f));
+            Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+        }
     }
 
     private void Update()

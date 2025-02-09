@@ -4,6 +4,7 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject laserBullet;
     [SerializeField] private float shootingInterval;
+    [SerializeField] private AudioSource shootSfx;
     
     [Header("Basic Attack")]
     [SerializeField] private Transform basicShootingPoint;
@@ -49,6 +50,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        shootSfx.Play();
         switch (_upgradeLevel)
         {
             case 0:

@@ -6,12 +6,13 @@ public class Enemy : MonoBehaviour
 {
        [SerializeField] protected float health;
        [SerializeField] protected Rigidbody2D rb;
+       [SerializeField] protected Animator anim;
        [SerializeField] protected float damage;
-       [SerializeField] protected int scoreValue;
        [SerializeField] protected GameObject explosionPrefab;
        [SerializeField] protected PowerUpSpawnerSO powerUpSpawner;
 
-       [SerializeField] protected Animator anim;
+       [Header("Score")]
+       [SerializeField] protected int scoreValue;
 
        public void TakeDamage(float dmg)
        {
